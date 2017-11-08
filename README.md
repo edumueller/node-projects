@@ -15,9 +15,7 @@ Afterwards, you will run the following command to install express:
 npm install --save express
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
+## index.js
 
 Explain how to run the automated tests for this system
 
