@@ -14,14 +14,13 @@ Afterwards, you will run the following command to install express:
 ```
 npm install --save express
 ```
-
 ## index.js
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### Heroku
 
-Explain what these tests test and why
+We are going to use Heroku as our cloud server, we can intall the heroku-cli from npm and just login into it.. Then we can add a remote called heroku with the provided link after we run the heroku create, if needed.
 
 ```
 Give an example
