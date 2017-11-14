@@ -22,7 +22,8 @@ passport.use(
 		{
 			clientID: keys.google.client_id,
 			clientSecret: keys.google.client_secret,
-			callbackURL: '/auth/google/callback' // This is the URL Google will send the code we will need to ask the user's info he has stored.
+			callbackURL: '/auth/google/callback', // This is the URL Google will send the code we will need to ask the user's info he has stored.
+			proxy: true
 		},
 		(accessToken, refreshToken, profile, done) => {
 			// This is what's executed when we get a profile back..
