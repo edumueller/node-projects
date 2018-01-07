@@ -25,17 +25,14 @@ passport.use(
 			callbackURL: '/auth/google/callback', // This is the URL Google will send the code we will need to ask the user's info he has stored.
 			proxy: true
 		},
-		(accessToken, refreshToken, profile, done) => {
+		async (accessToken, refreshToken, profile, done) => {
 			// This is what's executed when we get a profile back..
-			User.findOne({ googleID: profile.id }).then(existingUser => {
-				if (existingUser) {
-					done(null, existingUser);
-				} else {
-					new User({ googleID: profile.id })
-						.save()
-						.then(user => done(null, user));
-				}
-			});
+			const existingUser = await User.findOne({ googleID: profile.id });
+			if (existingUser) {
+				return done(null, existingUser);
+			}
+			const user = await new User({ googleID: profile.id }).save();
+			done(null, user);
 		}
 	)
 );
