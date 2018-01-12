@@ -29,15 +29,16 @@ Explain how to run the automated tests for this system
 
 We are going to use Heroku as our cloud server, we can intall the heroku-cli
 from npm and just login into it.. Then we can add a remote called heroku with
-the provided link after we run the heroku create, if needed.
+the provided link after we run the heroku create, if needed
 
 ```
 Give an example
 ```
 
-### And coding style tests
+### Naming Conventions
 
-Explain what these tests test and why
+On components that return an object, we are going to capitalize the first letter,
+on components that return a function we will use camelCase
 
 ```
 Give an example
@@ -56,7 +57,7 @@ Add additional notes about how to deploy this on a live system
 * [MongoDB](https://www.mongodb.com/) - MongoDB Database
 * [mLab](https://mlab.com/) - Cloud MongoDB Database
 * [cookie-session](https://github.com/expressjs/cookie-session) - Handles
-	cookies for Express.js
+  cookies for Express.js
 
 ## Contributing
 
