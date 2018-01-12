@@ -6,10 +6,26 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 
 const FIELDS = [
-	{ label: 'Survey Title', name: 'title' },
-	{ label: 'Subject Line', name: 'subject' },
-	{ label: 'Email Body', name: 'body' },
-	{ label: 'Recipient List', name: 'emails' }
+	{
+		label: 'Survey Title',
+		name: 'title',
+		errMessage: 'You must provide a Survey title!'
+	},
+	{
+		label: 'Subject Line',
+		name: 'subject',
+		errMessage: 'You must provide a subject!'
+	},
+	{
+		label: 'Email Body',
+		name: 'body',
+		errMessage: 'You must provide an email body!'
+	},
+	{
+		label: 'Recipient List',
+		name: 'emails',
+		errMessage: 'You must provide email recipients!'
+	}
 ];
 
 class SurveyForm extends Component {
@@ -45,6 +61,19 @@ class SurveyForm extends Component {
 	}
 }
 
+function validate(values) {
+	const errors = {};
+
+	_.each(FIELDS, ({ name, errMessage }) => {
+		if (!values[name]) {
+			errors[name] = errMessage;
+		}
+	});
+
+	return errors; // If errors is empty, the form is valid ! Otherwise it's not and the form is not submitted.
+}
+
 export default reduxForm({
+	validate,
 	form: 'surveyForm'
 })(SurveyForm);
