@@ -14,8 +14,9 @@ export const handleToken = token => async dispatch => {
 	dispatch({ type: FETCH_USER, payload: res.data }); // dispatches some action. Since we used the same FETCH_USER, the header updates automatically when we run the action to add credits!
 };
 
-export const submitSurvey = values => async dispatch => {
+export const submitSurvey = (values, history) => async dispatch => {
 	const res = await axios.post('/api/surveys', values);
 
+	history.push('/surveys');
 	dispatch({ type: FETCH_USER, payload: res.data });
 };
