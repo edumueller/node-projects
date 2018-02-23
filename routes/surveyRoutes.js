@@ -25,6 +25,7 @@ module.exports = app => {
 
 	app.post('/api/surveys/webhooks', (req, res) => {
 		// First map over the events to extract some
+		console.log(req.body);
 		const p = new Path('/api/surveys/:surveyId/:choice');
 		_.chain(req.body)
 			.map(({ url, email }) => {
